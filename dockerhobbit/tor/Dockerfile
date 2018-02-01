@@ -45,6 +45,7 @@ RUN tmp="/tmp/tor"          && \
 
 # Cleanup dependencies
 RUN apt remove -y wget gcc make
+RUN apt autoremove -y
 RUN apt clean
 
 
@@ -54,5 +55,6 @@ RUN mv -v tor.conf /usr/local/etc/tor/torrc
 
 
 EXPOSE 9050
+
 
 ENTRYPOINT su - tor -c "tor"
