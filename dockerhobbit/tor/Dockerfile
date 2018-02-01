@@ -45,6 +45,7 @@ RUN tmp="/tmp/tor"          && \
 
 # Cleanup dependencies
 RUN apt remove -y wget gcc make
+RUN apt clean
 
 
 # Create unprivileged user
