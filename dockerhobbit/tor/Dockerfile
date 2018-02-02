@@ -54,7 +54,12 @@ RUN useradd -m tor -c "tor user"
 RUN mv -v tor.conf /usr/local/etc/tor/torrc
 
 
+# Entrypoint
+RUN echo su - tor -c "tor" > entrypoint.sh
+RUN chmod +x entrypoint.sh
+
+
 EXPOSE 9050
 
 
-ENTRYPOINT su - tor -c "tor"
+ENTRYPOINT ["entrypoint.sh"]
